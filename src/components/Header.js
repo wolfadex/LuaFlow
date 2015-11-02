@@ -1,5 +1,6 @@
 import {Notification} from './Notification';
 import {ProgressBar} from './ProgressBar';
+import {Converter} from '../libs/Converter';
 
 class Header {
     constructor() {
@@ -89,7 +90,8 @@ class Header {
     }
 
     _importSuccess(content) {
-    	console.log('Success');
+    	console.log('Import Success');
+        console.log(Converter.luaToAST(content));
     }
 }
 export {Header}

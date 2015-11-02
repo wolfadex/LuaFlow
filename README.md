@@ -1,1 +1,0 @@
-A visual editor for Lua.

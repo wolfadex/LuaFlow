@@ -15,6 +15,7 @@
     <script src='./dist/libs/luaparse.js'></script>
     <script src='./dist/app.js'></script>
     <div id='root'>
+      <!-- Header Menu -->
       <div class='ui attached stackable menu'>
         <div class='header item'>
           Lua Flow
@@ -48,6 +49,20 @@
             <a class='item'>Properties</a>
             <a class='item'>Components</a>
           </div>
+        </div>
+      </div>
+      <!-- Properties and Editor -->
+      <div class='lower-half'>
+        <!-- Properties -->
+        <div class='properties-panel'>
+        </div>
+        <!-- Editor -->
+        <div class='editor-area'>
+          <!-- Tabs -->
+          <div class='editor-tabs'>
+          </div>
+          <!-- Canvas -->
+          <canvas id='editor-canvas' width=20 height=20></canvas>
         </div>
       </div>
     </div>

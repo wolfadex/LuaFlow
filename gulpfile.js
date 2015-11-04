@@ -38,20 +38,20 @@ function bundle() {
     .pipe(reload({ stream: true }));
 }
 
-gulp.task('add-libs', function() {
+gulp.task('dist-libs', function() {
   gulp.src('./node_modules/luaparse/luaparse.js')
-    .pipe(gulp.dest('./src/libs'));
+    .pipe(gulp.dest('./dist/libs'));
 });
 
-gulp.task('build-persistent', ['add-libs', 'clean'], function() {
+gulp.task('build-persistent', ['clean'], function() {
   return bundle();
 });
 
-gulp.task('build', ['build-persistent'], function() {
+gulp.task('build', ['build-persistent', 'dist-libs'], function() {
   process.exit(0);
 });
 
-gulp.task('watch', ['build-persistent'], function() {
+gulp.task('watch', ['build-persistent', 'dist-libs'], function() {
 
   browserSync({
     server: {

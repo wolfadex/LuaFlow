@@ -12,10 +12,44 @@
     <link rel='stylesheet' type='text/css' href='./semantic/dist/semantic.min.css'>
   </head>
   <body>
-    <div id='root'></div>
-    <script src='./dist/app.js'> </script>
-    <script>
-      app();
-    </script>
+    <script src='./dist/libs/luaparse.js'></script>
+    <script src='./dist/app.js'></script>
+    <div id='root'>
+      <div class='ui attached stackable menu'>
+        <div class='header item'>
+          Lua Flow
+        </div>
+        <div class='ui simple dropdown item'>
+          File
+          <i class='dropdown icon'></i>
+          <div class='menu'>
+            <a id='menu-file-new' class='item'>New</a>
+            <a id='menu-file-import' class='item'>Import</a>
+            <input type='file' id='import-input' style='display: none;'>
+            <a id='menu-file-export' class='item'>Export</a>
+            <a id='menu-file-exit' class='item'>Exit</a>
+          </div>
+        </div>
+        <div class='ui simple dropdown item'>
+          Edit
+          <i class='dropdown icon'></i>
+          <div class='menu'>
+            <a class='item'>Undo</a>
+            <a class='item'>Redo</a>
+            <a class='item'>Cut</a>
+            <a class='item'>Copy</a>
+            <a class='item'>Paste</a>
+          </div>
+        </div>
+        <div class='ui simple dropdown item'>
+          View
+          <i class='dropdown icon'></i>
+          <div class='menu'>
+            <a class='item'>Properties</a>
+            <a class='item'>Components</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

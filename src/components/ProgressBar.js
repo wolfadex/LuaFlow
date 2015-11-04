@@ -53,8 +53,8 @@ class ProgressBar {
     	this.loadingModal.classList.remove('active');
         this.loadingModal.classList.remove('visible');
         this.loadingModal.classList.add('hidden');
-        this.loadingModal.querySelectorAll('.modal')[0].classList.remove('active');
     	this.loadingModal.innerHTML = '';
     }
 }
+
 export {ProgressBar}

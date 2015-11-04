@@ -1,16 +1,18 @@
-import  {LuaParse} from './luaparse';
+class Converter {
+	luaToAST(lua) {
+		let chunk;
 
-export function luaToAST(lua) {
-	let chunk;
+		try {
+			chunk = luaparse.parse(lua, {
+					locations: true
+				});
+		}
+		catch (e) {
+			return e;
+		}
 
-	try {
-		chunk = LuaParse.parse(lua, {
-				locations: true
-			});
+		return chunk;
 	}
-	catch (e) {
-		return e;
-	}
+}
 
-	return chunk;
-};
+export {Converter}

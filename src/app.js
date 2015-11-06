@@ -1,6 +1,6 @@
 import {Notification} from './components/Notification';
-import {ProgressBar} from './components/ProgressBar';
-import {Converter} from './libs/Converter';
+import {ProgressBar}  from './components/ProgressBar';
+import {Converter}    from './libs/Converter';
 
 window.LuaFlow = {};
 let privateFn = {
@@ -25,24 +25,28 @@ let privateFn = {
                 message: error
             });
     },
-    _importSuccess: function() {
+    _importSuccess: function(e) {
         LuaFlow.progressBar.show({
                 label: 'Converting to AST...'
             });
 
-        let result = LuaFlow.converter.luaToAST(LuaFlow.reader.result);
+        let result = LuaFlow.converter.toAST({
+                file: e.target.result,
+                language: 'lua'
+            });
 
         LuaFlow.progressBar.hide();
 
-        if (result.type && result.type === 'Chunk') {
-
+        if (result.success) {
+            result = LuaFlow.converter.addUUIDs(result.result);
+            result = LuaFlow.converter.linkToParents(result, result);
         }
         else {
             LuaFlow.notification.show({
                     style: 'error',
                     type: 'alert',
                     title: 'Error',
-                    message: result
+                    message: result.result
                 });
         }
     }
